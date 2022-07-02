@@ -14,6 +14,8 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 
 
+OTP = None
+
 def generate_OTP(length):
     OTP = ""
     for i in range(1,length):    
@@ -29,10 +31,16 @@ def OTP_Message(UserName):
     Msg+=OTP
     return Msg
 
+def checkOTP(userOTP):
+    if userOTP == OTP:
+        return True
+    else:
+        return False
 
 
 
 def sendotp(MailID,UserName):
+    OTP = None
     """Create and send an email message
     Print the returned  message id
     Returns: Message object, including message id
@@ -50,7 +58,7 @@ def sendotp(MailID,UserName):
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
+                'gmailApi\gmail\credentials.json', SCOPES)
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
         with open('token.json', 'w') as token:

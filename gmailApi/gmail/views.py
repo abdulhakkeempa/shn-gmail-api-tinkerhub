@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from gmail.models import OTP
 
 from .forms import ProjectForm,OTPForm
-from .sendOTP import sendotp
+from .sendOTP import *
 
 # Create your views here.
 def homePage(request):
