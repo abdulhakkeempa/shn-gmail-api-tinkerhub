@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from gmail.models import OTP
 
 from .forms import ProjectForm,OTPForm
+from .sendOTP import sendotp
 
 # Create your views here.
 def homePage(request):
@@ -16,6 +17,8 @@ def emailPage(request):
         form = ProjectForm(request.POST)
         if form.is_valid():
             form.save()
+            InputEmail = form['email'].value()
+            sendotp(InputEmail,"Django - Test")
             return redirect('otpValidation')
     context = {}
     context['form'] = form
