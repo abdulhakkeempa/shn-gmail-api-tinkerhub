@@ -64,7 +64,7 @@ def sendotp(MailID,UserName):
 
         message['To'] = MailID
         message['From'] = 'gduser2@workspacesamples.dev'
-        message['Subject'] = 'OTP for authentication'
+        message['Subject'] = 'OTP for Authentication'
 
         # encoded message
         encoded_message = base64.urlsafe_b64encode(message.as_bytes()) \
