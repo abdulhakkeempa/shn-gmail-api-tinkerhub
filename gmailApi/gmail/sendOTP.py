@@ -32,6 +32,8 @@ def OTP_Message(UserName):
     return Msg
 
 def checkOTP(userOTP):
+    print(userOTP)
+    print(OTP)
     if userOTP == OTP:
         return True
     else:
