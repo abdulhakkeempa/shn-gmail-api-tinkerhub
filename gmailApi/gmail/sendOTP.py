@@ -91,6 +91,3 @@ def sendotp(MailID,UserName):
         send_message = None
     return send_message
 
-
-if __name__ == '__main__':
-    sendotp("devcb1313@gmail.com","Dev")
