@@ -31,3 +31,8 @@ Open your browser and go to
 ```
 http://127.0.0.1:8000/
 ```
+## Demo - Video
+
+
+https://user-images.githubusercontent.com/92361680/177010781-57e6e2da-7fb0-4860-980b-3f622730cc81.mp4
+
