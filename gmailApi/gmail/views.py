@@ -31,7 +31,11 @@ def otpPage(request):
         form = OTPForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request,"gmail/webpage_3.html")
+            userOTP = form['otp'].value()
+            if checkOTP(userOTP):
+                return render(request,"gmail/webpage_3.html")
+            else:
+                return HttpResponse("Sorry Invalid OTP")
     context = {}
     context ['form'] = form
     return render(request,'gmail/webpage_2.html',context)
