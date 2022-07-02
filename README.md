@@ -11,12 +11,19 @@ We have used Python Django as backend and integrated with Gmail API to create a 
 2. One Time Password (OTP) will be sent to the user's given mail id
 3. User has to input the OTP and the server validates whether it is correct or not.
 ## Running the file
+Clone the Repo
 ```
 git clone https://github.com/hakkeempa/shn-gmail-api-tinkerhub
 ```
+Install the packages and dependencies ( virtual environment - recommended )
+```
+pip install -r requirements.txt
+```
+Go to Django Project Folder
 ```
 cd gmailApi
 ```
+Run the server
 ```
 cd python manage.py runserver
 ```
