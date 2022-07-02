@@ -2,11 +2,7 @@ import django
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
-<<<<<<< HEAD
-=======
 #from gmail.models import OTP
-
->>>>>>> fc819fbdf43c71805e218875b1135b7a2e989170
 from .forms import ProjectForm,OTPForm
 from .sendOTP import *
 
