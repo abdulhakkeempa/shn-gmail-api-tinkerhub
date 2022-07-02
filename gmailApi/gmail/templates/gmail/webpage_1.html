@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Welcome to Email Authentication</title>
+    </head>
+
+    <body>
+
+        <h1>Enter the Email</h1>
+        <div class="container">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <!-- <input type="text" placeholder="Please enter your Email....."> -->
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+    </body>
+</html>
