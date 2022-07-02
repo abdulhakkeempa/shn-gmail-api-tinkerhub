@@ -15,12 +15,13 @@ SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 
 
 OTP = None
-
+global originalOTP
 def generate_OTP(length):
     OTP = ""
     for i in range(1,length):    
         a = chr(random.randrange(33,126))
         OTP+=a
+    originalOTP = OTP
     return OTP
 
 
@@ -33,8 +34,8 @@ def OTP_Message(UserName):
 
 def checkOTP(userOTP):
     print(userOTP)
-    print(OTP)
-    if userOTP == OTP:
+    print(originalOTP)
+    if userOTP == originalOTP:
         return True
     else:
         return False
