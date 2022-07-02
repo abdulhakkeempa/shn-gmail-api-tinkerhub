@@ -2,8 +2,6 @@ import django
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
-from gmail.models import OTP
-
 from .forms import ProjectForm,OTPForm
 from .sendOTP import *
 
@@ -35,7 +33,7 @@ def otpPage(request):
             if checkOTP(userOTP):
                 return render(request,"gmail/webpage_3.html")
             else:
-                return HttpResponse("Sorry Invalid OTP")
+                return render(request,"gmail/error.html")
     context = {}
     context ['form'] = form
     return render(request,'gmail/webpage_2.html',context)
