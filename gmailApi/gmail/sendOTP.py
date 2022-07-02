@@ -14,8 +14,6 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 
 
-OTP = None
-global originalOTP
 def generate_OTP(length):
     OTP = ""
     for i in range(1,length):    
@@ -25,25 +23,17 @@ def generate_OTP(length):
     return OTP
 
 
-def OTP_Message(UserName):
+def OTP_Message(UserName,OTP):
     Msg = "Hi,\nWelcome " + UserName + "\nYour OTP is : "
-    OTP = generate_OTP(10)
+    #OTP = generate_OTP(10)
     OTP = str(OTP)
     Msg+=OTP
     return Msg
 
-def checkOTP(userOTP):
-    print(userOTP)
-    print(originalOTP)
-    if userOTP == originalOTP:
-        return True
-    else:
-        return False
 
 
 
 def sendotp(MailID,UserName):
-    OTP = None
     """Create and send an email message
     Print the returned  message id
     Returns: Message object, including message id
@@ -69,8 +59,8 @@ def sendotp(MailID,UserName):
     try:
         service = build('gmail', 'v1', credentials=creds)
         message = EmailMessage()
-
-        message.set_content(OTP_Message(UserName))
+        OTPus = generate_OTP(10)
+        message.set_content(OTP_Message(UserName,OTPus))
 
         message['To'] = MailID
         message['From'] = 'gduser2@workspacesamples.dev'
@@ -90,5 +80,5 @@ def sendotp(MailID,UserName):
     except HttpError as error:
         print(F'An error occurred: {error}')
         send_message = None
-    return send_message
+    return OTPus
 
