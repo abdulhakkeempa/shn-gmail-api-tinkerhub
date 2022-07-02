@@ -20,7 +20,7 @@ def emailPage(request):
             form.save()
             InputEmail = form['email'].value()
             global ret_otp
-            ret_otp = sendotp(InputEmail,"Django - Test")
+            ret_otp = sendotp(InputEmail,"USER")
             return redirect('otpValidation')
     context = {}
     context['form'] = form
