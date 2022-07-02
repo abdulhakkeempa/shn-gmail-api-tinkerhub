@@ -25,7 +25,7 @@ cd gmailApi
 ```
 Run the server
 ```
-cd python manage.py runserver
+python manage.py runserver
 ```
 Open your browser and go to 
 ```
